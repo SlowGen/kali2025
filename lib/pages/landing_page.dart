@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kali2025/widgets/body.dart';
 import 'package:kali2025/widgets/header.dart';
 
-class Landing extends StatelessWidget {
-  const Landing({super.key});
+class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: DecoratedBox(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -19,7 +19,6 @@ class Landing extends StatelessWidget {
         // fill the whole screen
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [Header(), Body()],
           ),
         ),
