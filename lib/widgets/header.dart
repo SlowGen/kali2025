@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kali2025/widgets/hamburger_menu.dart';
 import 'package:kali2025/widgets/typewriter_title.dart';
 
 class Header extends StatelessWidget {
@@ -6,6 +7,10 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [TypewriterTitle()]);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      children: [TypewriterTitle(), HamburgerMenu()],
+    );
   }
 }

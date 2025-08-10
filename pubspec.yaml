@@ -1,5 +1,5 @@
 name: kali2025
-description: "A new Flutter project."
+description: "kali.nyc - updated 2025"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,14 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_animate: ^4.5.2
-  animated_text_kit: ^4.2.2
+  google_fonts: ^6.3.0
+  watch_it: ^1.6.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-
+  flutter_lints: ^6.0.0
+  very_good_analysis: ^9.0.0
 
 flutter:
   uses-material-design: true
