@@ -3,7 +3,7 @@ import 'package:kali2025/controllers/navigation_controller.dart';
 import 'package:kali2025/definitions/enums.dart';
 import 'package:watch_it/watch_it.dart';
 
-class HamburgerMenu extends StatelessWidget {
+class HamburgerMenu extends WatchingWidget {
   const HamburgerMenu({super.key});
 
   void onChanged(DisplayPage? value) {
@@ -12,6 +12,10 @@ class HamburgerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentPage = watchPropertyValue(
+      (NavigationController n) => n.currentPage,
+    );
+
     return DropdownButton(
       icon: const Icon(Icons.menu),
       items: const [
@@ -24,6 +28,7 @@ class HamburgerMenu extends StatelessWidget {
       onChanged: onChanged,
       padding: const EdgeInsets.all(8),
       underline: const SizedBox.shrink(),
+      value: currentPage,
     );
   }
 }

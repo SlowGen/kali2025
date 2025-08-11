@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TypewriterTitle extends StatefulWidget {
@@ -16,8 +16,11 @@ class _TypewriterTitleState extends State<TypewriterTitle>
   late Timer _typewriterTimer;
 
   String _displayText = '';
-  int _currentPhase =
-      0; // 0: typing kali.nyc, 1: backspacing, 2: typing software engineer, 3: backspacing
+  int _currentPhase = 0;
+  // 0: typing kali.nyc,
+  // 1: backspacing,
+  // 2: typing software engineer,
+  // 3: backspacing
   int _currentIndex = 0;
 
   final List<String> _texts = ['kali.nyc', 'software engineer'];
@@ -66,7 +69,6 @@ class _TypewriterTitleState extends State<TypewriterTitle>
               );
             });
           }
-          break;
 
         case 1: // Backspacing kali.nyc
           if (_currentIndex > 0) {
@@ -82,7 +84,6 @@ class _TypewriterTitleState extends State<TypewriterTitle>
               _handleTypewriterTick,
             );
           }
-          break;
 
         case 2: // Typing software engineer
           if (_currentIndex < _texts[1].length) {
@@ -100,7 +101,6 @@ class _TypewriterTitleState extends State<TypewriterTitle>
               );
             });
           }
-          break;
 
         case 3: // Backspacing software engineer
           if (_currentIndex > 0) {
@@ -116,7 +116,6 @@ class _TypewriterTitleState extends State<TypewriterTitle>
               _handleTypewriterTick,
             );
           }
-          break;
       }
     });
   }
@@ -130,31 +129,34 @@ class _TypewriterTitleState extends State<TypewriterTitle>
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          _displayText,
-          style: GoogleFonts.firaCode(
-            fontSize: 32,
-            color: const Color.fromARGB(255, 30, 37, 41),
+    return Padding(
+      padding: const EdgeInsets.only(left: 16),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            _displayText,
+            style: GoogleFonts.firaCode(
+              fontSize: 32,
+              color: const Color.fromARGB(255, 30, 37, 41),
+            ),
           ),
-        ),
-        AnimatedBuilder(
-          animation: _cursorController,
-          builder: (context, child) {
-            return Container(
-              width: 2,
-              height: 24,
-              margin: const EdgeInsets.only(left: 2),
-              color: _cursorController.value > 0.5
-                  ? Theme.of(context).textTheme.headlineLarge?.color ??
-                        Colors.black
-                  : Colors.transparent,
-            );
-          },
-        ),
-      ],
+          AnimatedBuilder(
+            animation: _cursorController,
+            builder: (context, child) {
+              return Container(
+                width: 2,
+                height: 24,
+                margin: const EdgeInsets.only(left: 2),
+                color: _cursorController.value > 0.5
+                    ? Theme.of(context).textTheme.headlineLarge?.color ??
+                          Colors.black
+                    : Colors.transparent,
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
